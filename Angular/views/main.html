@@ -1,0 +1,60 @@
+<html lang="en" ng-app="myApp">
+<head>
+
+<!-- Angular Material Dependencies -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>
+      <link rel="stylesheet" href="https://cdn.rawgit.com/angular/bower-material/v0.9.7/angular-material.css">
+      <link rel="stylesheet" href="../static/">
+      
+      <script src="../controllers/homeController.js"></script>
+
+
+</head>
+<body class="md-whiteframe-z5">
+
+<h1 class="md-headline">Welcome</h1>
+    
+
+<img align="left"style="padding:15px;" align="left" src="img/jamesritter.jpg" alt="profilepic" width="160" height="160" > 
+    <p class="md-body-1">My name is James Ritter and I love developing new ideas and perspectives!</p>
+    <p class="md-body-1">I have been a devloper since 2012 </p> 
+
+<div ng-controller="goalController" layout="column"  > 
+ <md-toolbar class="md-primary">
+    <div class="md-toolbar-tools">
+      <h2 class="md-flex">Goals</h2>
+    </div>
+  </md-toolbar>
+  <md-content  class="md-whiteframe-z2" flex >
+    <md-list>
+      <md-subheader class="md-no-sticky">Short-Term</md-subheader>
+        <md-list-item class="md-3-line" ng-repeat="item in shortgoals">
+            <div class="md-list-item-text">
+                <h3>{{ item.text }}</h3>
+            </div>
+            <md-divider ng-if="$last"></md-divider>
+        </md-list-item>
+        <md-subheader class="md-no-sticky">Long-Term</md-subheader>
+          <md-list-item class="md-3-line" ng-repeat="item in longgoals">
+            <div class="md-list-item-text">
+                <h3>{{ item.text }}</h3>
+            </div>
+          </md-list-item>
+    </md-list>
+    </md-content>
+</div>
+    
+<div>
+<h1 class="md-primary md-headline">I can do that</h1>
+<p class="md-body-1">I am always open to new things and plan on learning somthing new till the day i die.</p>
+</div>
+
+
+
+</body>
+</html>
