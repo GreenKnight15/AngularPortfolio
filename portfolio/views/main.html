@@ -1,0 +1,86 @@
+<html lang="en" ng-app="myApp">
+
+<head>
+
+    <!-- Angular Material Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/angular/bower-material/v0.9.7/angular-material.css">
+    <link rel="stylesheet" href="static/">
+
+    <script src="controllers/homeController.js"></script>
+
+</head>
+
+<body class="md-whiteframe-z5">
+
+    <div flex layout="column" class="md-whiteframe-z2 ">
+    <p class="md-headline" layout-padding>With Problems Comes Oppurtunity and Innovation </p>
+    <div flex></div>
+        <div flex layout="row" >
+            
+            <div layout="row" layout-sm="column">
+            <div flex="25" layout-align="start start" layout="column" layout-padding>
+                <img class="md-card-image" align="left" style="padding:10px;" align="left" src="./static/img/jamesritter.jpg" alt="profilepic" width="160" height="160">
+                <p class="md-body-1">James Ritter </p>
+                <p class="md-body-1">B.B.A. Computer Information Systems </p>
+                <p class="md-body-1">22 years old </p>
+            </div>
+
+            <div flex layout="column" layout-align="start start">
+                <h1 class="md-headline" layout-align="start start">I Can Do That</h1>
+                <p class="md-body-1">I love to learn.
+                    <br>
+                    <br>With the recent Agile Methodology movment I've noticed a shift from specality developers to adaptive multi-faceted developers. I wouldn't want it any other way, I love the idea of haveing oppurtunities to try new things, and to never stop learning. </p><br>
+                
+                <p class="md-body-1">Development isn't about coding its about solving problems This is why I am so passionate about programming and development. Having the ability to to create tools to make someone's life easier</p>
+            </div>
+                </div>
+        </div>
+    </div>
+    <div flex="55" layout="column" style="height:50px"></div>
+
+    <div ng-controller="goalController" layout="row" layout-align="start" layout="column">
+
+        <md-content class="md-whiteframe-z2" flex-lg="33">
+            <md-toolbar class="md-primary" flex>
+                <div class="md-toolbar-tools">
+                    <h2 class="md-flex" style="color:white;">Goals</h2>
+                </div>
+            </md-toolbar>
+            <md-list>
+                <md-subheader class="md-no-sticky">Short-Term</md-subheader>
+                <md-list-item class="md-3-line" ng-repeat="item in shortgoals">
+                    <div class="md-body-1">
+                        <p>{{ item.text }}
+                            <p>
+                    </div>
+                    <md-divider ng-if="$last"></md-divider>
+                </md-list-item>
+                <md-subheader class="md-no-sticky">Long-Term</md-subheader>
+                <md-list-item class="md-3-line" ng-repeat="item in longgoals">
+                    <div class="md-body-1">
+                        <p>{{ item.text }}</p>
+                    </div>
+                    <md-divider ng-if="$last"></md-divider>
+                </md-list-item>
+                <md-subheader class="md-no-sticky">Never-Ending</md-subheader>
+                <md-list-item class="md-3-line" ng-repeat="item in neverending">
+                    <div class="md-body-1">
+                        <p>{{ item.text }}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+
+
+
+
+</body>
+
+</html>

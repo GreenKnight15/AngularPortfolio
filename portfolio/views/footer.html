@@ -1,9 +1,9 @@
-<md-bottom-sheet class="md-grid">
-  <md-list>
+<md-bottom-sheet class="md-grid" > 
+  <md-list >
     <md-list-item ng-repeat="item in items">
       <md-button class="md-grid-item-content" ng-click="listItemClick($index)">
         <ng-md-icon  icon="{{item.icon}}" style="fill:{{item.color}}" size="64"></ng-md-icon>
-        <div class="md-grid-text"> {{ item.name}} </div>
+        <!--<div class="md-grid-text"> {{ item.name}} </div>-->
       </md-button>
     </md-list-item>
   </md-list>

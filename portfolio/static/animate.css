@@ -1,6 +1,6 @@
 .view-animate-container {
   position:relative;
-  height:95% !important;
+  <!--height:800px !important;--->
 
   overflow:hidden;
 }
@@ -27,7 +27,8 @@
 }
 
 .view-animate.ng-enter {
- left:-300%;
+ left:-100%;
+ height:100%;
 
 }
 .view-animate.ng-enter.ng-enter-active {
@@ -37,3 +38,15 @@ left:0;
   left:100%;
 
 }
+
+.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button, .tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button:hover {
+  box-shadow: none;
+  border: none;
+  transform: none;
+  -webkit-transform: none; }
+.tooltipdemoBasicUsage .left {
+  top: 70px !important;
+  left: 56px !important; }
+.tooltipdemoBasicUsage .right {
+  top: 70px !important;
+  right: 56px !important; }

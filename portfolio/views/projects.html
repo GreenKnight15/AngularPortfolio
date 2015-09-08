@@ -1,0 +1,20 @@
+
+<body ng-app="myApp">
+   <md-content  layout-md="column" layout="row"  layout-sm="column" ng-repeat="item in projects">          
+        <md-list ng-controller="projectController" layout="column">
+            <md-list-item   layout-md="column" layout="row" layout-sm="column" class="md-2-line ">
+                    <img   flex-md="55" class="md-card-image" ng-src="static/img/{{item.img}}"  alt="{{item.title}}" width="200" />
+                            <md-content layout="column"class="md-list-item-text"  offset="10" >
+                                <h1 class="md-display-1">{{ item.title }}</h1>
+                                <p class="md-body-1" >{{ item.line1}}</p>
+                                <p class="md-body-1">{{ item.line2}}</p>
+                                <md-chips ng-model="item.tags" readonly="true"></md-chips>
+                            </md-content> 
+                </md-list-item>
+            </md-list>
+       <div style="height:48px;"></div>
+    </md-content>
+    
+</body>
+
+

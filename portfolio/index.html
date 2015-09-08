@@ -1,0 +1,114 @@
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta name="viewport" content="initial-scale=1" />
+      
+      <!-- Angular Material Dependencies -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>
+      <link rel="stylesheet" href="https://cdn.rawgit.com/angular/bower-material/v0.9.7/angular-material.css">
+      <link rel="stylesheet" href="/static/animate.css">
+      
+      <script src="/controllers/layoutController.js"></script>
+    </head>
+    
+  <body style="overflow: hidden">
+       <div ng-controller="toolBarController">
+      <!-- Left tool bar-->
+        <md-toolbar style="z-index="100" "class=" md-primary"  md-scroll-shrink>
+          <div class=" md-toolbar-tools" >
+            <md-button ng-controller="AppCtrl"  class="md-accent md-icon-button" aria-label="menu" ng-click="toggleLeft()">
+              <ng-md-icon icon="menu" style="fill: #ffffff" aria-label="Settings"></ng-md-icon>
+            </md-button>
+            <p class="md-headline" style="color:white;" >James Ritter-Developer </p>
+              <span flex></span>
+            <md-button class=" md-accent  md-icon-button" aria-label="Home">
+                <a  href="#/"> <ng-md-icon icon="home" style="fill: #ffffff" ></ng-md-icon></a>
+            </md-button>
+            <md-button ng-controller="AppCtrl" class="md-accent md-icon-button" ng-click="toggleRight()">
+              <ng-md-icon icon="email" style="fill: #ffffff;" aria-label="Send Eamil"></ng-md-icon>
+            </md-button>
+          </div>
+        </md-toolbar>
+    </div>
+      
+       <!--body-->
+        <div ng-controller="LeftCtrl" ng-click="close()" flex>
+          <md-content class="md-whiteframe-z3 " layout-padding style="height: 770px;" flex>
+          <div layout="column" layout-fill flex  >
+            <div class=" view-animate-container">
+                <div ng-view class="view-animate"></div>
+                <div ng-include="menu.url" class="view-animate "></div>
+             </div>
+          </div>
+          <div flex></div>
+         </md-content>
+        </div>
+      
+   <div ng-controller="AppCtrl" layout="column" >  
+    <md-sidenav class="md-sidenav-left md-whiteframe-z4 " md-component-id="left">
+        <md-toolbar class="md-primary md-hue-1" >
+        <h1 class="md-toolbar-tools" style="color:white;">Menu</h1>
+      </md-toolbar>
+        
+          <section   ng-controller="LeftCtrl" flex layout="column" >
+            <md-list >
+              <md-list-item class="md-3-line" ng-repeat="item in menu">
+                  <md-divider ></md-divider>
+                <div ng-model="menu"  class="md-list-item-text">
+               <a href='#{{item.url}}' ng-click="close();"> <md-button class="md-icon-button md-raised md-accent" style="float:right;"   aria-label="Home" >
+                    <ng-md-icon icon=arrow_forward style="fill:#ffffff;"></ng-md-icon>
+                </md-button></a>
+                 <h2>{{ item.title }}</h2>
+                  <h4>{{ item.desc }}</h4>
+                </div>
+              </md-list-item>
+              <md-divider ></md-divider>
+            </md-list>
+              
+      </section>
+    </md-sidenav>
+       
+       <!--Right side bar -->
+      <md-sidenav class="md-sidenav-right md-whiteframe-z4" md-component-id="right">
+      <md-toolbar class="md-primary md-hue-1">
+        <h1 class="md-toolbar-tools" style="color: #ffffff">Send Email to James</h1>
+      </md-toolbar>
+      <section ng-controller="RightCtrl" layout-padding>
+        <form>
+            <md-input-container  >            
+                <input placeholder="Name (required)" ng-required="true" ng-model="user_name" type="text">
+             </md-input-container>
+            
+            <md-input-container >   
+            <input type="text"  placeholder="Email (required)" ng-required="true" id="emailInput" ng-model="user_email" md-sidenav-focus>
+          </md-input-container>
+          <md-input-container>
+            <input type="text" id="msgInput" ng-model="user_msg" placeholder="Meesege"  md-sidenav-focus >
+          </md-input-container>
+        </form>
+        <md-button ng-click="close()" class="md-accent md-raised">
+          <ng-md-icon icon="close" style="fill: #ffffff" aria-label="Close"></ng-md-icon>
+        </md-button>
+          <md-button ng-click="send($event)" class="md-accent md-raised" >
+          <ng-md-icon icon="send" style="fill: #ffffff" aria-label="Send"></ng-md-icon>
+        </md-button>
+      </section>
+    </md-sidenav>
+</div>
+            
+
+<!-- Footer-->
+  <div  ng-controller="BottomSheetExample" class="bottom-sheet-demo inset" layout="column" layout-sm="column" layout-align="center" [flex offset="75"] > 
+    <md-button class="md-fab md-accent md-raised md-whiteframe-z3 "  style="color: #ffffff; top:-50px; "  ng-click="showGridBottomSheet($event)" aria-label="Social Media" >
+        <ng-md-icon icon="people" style="fill: #ffffff"></ng-md-icon>  
+    </md-button>
+  </div>
+
+
+  </body>
+    
+</html>
